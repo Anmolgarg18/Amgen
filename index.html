@@ -43,10 +43,10 @@
    <div class="bg-white rounded-lg shadow-sm mb-6 p-6">
     <div class="flex items-center justify-between">
      <div>
-      <h1 class="text-2xl font-bold text-gray-900">事业部总监报告</h1>
+      <h1 class="text-2xl font-bold text-gray-900" id = "reporttitle">NBD 报告</h1>
       
      </div>
-     <div class="flex items-center space-x-4"><label class="text-sm font-medium text-gray-700">选择区域经理:</label> <select id="dmFilter" onchange="filterByDM()" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white min-w-48"> <option value="team">选择区域经理</option> <option value="">王瑜</option> <option value="">陈童帆</option> <option value="">马绫</option> <option value="">梁剑</option>  <option value="">史广朋</option></select>
+     <div class="flex items-center space-x-4"><label class="text-sm font-medium text-gray-700">选择区域经理:</label> <select id="dmFilter" onchange="filterByDM()" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white min-w-48"> <option value="team">选择区域经理</option> <option value="dm1">王瑜</option> <option value="dm1">陈童帆</option> <option value="dm1">马绫</option> <option value="dm1">梁剑</option>  <option value="dm1">史广朋</option></select>
      </div>
     </div>
    </div><!-- Tab Navigation -->
@@ -61,7 +61,7 @@
      <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
       <div class="mb-8">
        <h2 class="text-2xl font-bold text-gray-900 mb-2" id="overviewTitle">团队能力概览</h2>
-       <p class="text-gray-600" id="overviewDescription">以下评分展示了基于模拟评估和360度反馈，对安进中国地区经理能力模型的团队整体表现。团队在业务敏锐度和团队领导力方面表现突出，而在绩效辅导和*打造最佳团队（团队协作与团队建设）*方面仍有进一步提升空间。</p>
+       <p class="text-gray-600" id="overviewDescription">以下评分展示了基于模拟评估和360度反馈，对安进中国地区经理能力模型的团队整体表现。团队在业务敏锐度和团队领导力方面表现突出，而在绩效辅导和 打造最佳团队方面仍有进一步提升空间。</p>
       </div><!-- Legend -->
       <div class="bg-gray-50 rounded-lg p-4 mb-8">
        <div class="flex justify-start space-x-8 text-sm">
@@ -284,7 +284,7 @@
       </div>
      </div><!-- Competency Feedback Summary -->
      <div class="bg-white rounded-lg shadow-sm p-6" id="feedbackSection">
-      <h2 class="text-xl font-semibold text-gray-900 mb-6" id="feedbackTitle">团能力反馈汇总</h2>
+      <h2 class="text-xl font-semibold text-gray-900 mb-6" id="feedbackTitle">团队能力反馈汇总</h2>
       <div class="space-y-6" id="feedbackContent"><!-- Team Leadership Feedback -->
        <div class="border-l-4 pl-4" style="border-color: var(--primary);">
         <h3 class="font-semibold text-primary mb-2">团队领导力</h3>
@@ -749,7 +749,7 @@
         name: "Team Overview",
         title: "团队能力概览",
         description: "The ratings below show the team's collective performance based on simulation assessments and 360 feedback conducted against the Amgen China DM competency model. The team demonstrates strong 业务敏锐度 and leadership capabilities with opportunities for growth in coaching and team dynamics.",
-        feedbackTitle: "团能力反馈汇总"
+        feedbackTitle: "团队能力反馈汇总"
       },
       dm1: {
         name: "Sarah Chen",
@@ -793,7 +793,9 @@
       // Update charts with individual data if not team view
       if (selectedDM !== 'team') {
         updateChartsForIndividual(selectedDM);
+        document.getElementById('reporttitle').textContent = 'RM 报告'
         document.getElementById('legendone').textContent = '你的评分';
+
       } else {
         updateChartsForTeam();
       }
